@@ -189,13 +189,14 @@ const Calendar = () => {
                         const inOfficePercentage = calculateInOfficePercentage(date);
                         const isWeekendDay = isWeekend(date);
                         const cellColor = getCellColor(inOfficePercentage);
+                        const isToday = format(date, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd');
 
                         return (
                             <div
                                 key={formattedDate}
                                 className={`calendar-date ${isWeekendDay ? 'weekend' : ''} ${cellColor}`}
                             >
-                                <span>{format(date, 'd')}</span>
+                                <span style={{ color: isToday ? 'red' : 'inherit', fontWeight: isToday ? 'bold' : 'normal' }}>{format(date, 'd')}</span>
                                 {/* Show weekday in parentheses on mobile */}
                                 <span className="mobile-only"> ({format(date, 'EEE')}) </span>
                                 {!isWeekendDay && (
