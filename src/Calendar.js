@@ -196,6 +196,8 @@ const Calendar = () => {
                                 className={`calendar-date ${isWeekendDay ? 'weekend' : ''} ${cellColor}`}
                             >
                                 <span>{format(date, 'd')}</span>
+                                {/* Show weekday in parentheses on mobile */}
+                                <span className="mobile-only"> ({format(date, 'EEE')}) </span>
                                 {!isWeekendDay && (
                                     <>
                                         <select
