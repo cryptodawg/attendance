@@ -2,6 +2,7 @@
 .calendar-container {
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 
 .calendar {
@@ -11,12 +12,29 @@
 }
 
 .calendar-controls {
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
 }
+
+.arrow-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.month-display {
+    margin-left: 20px;
+    /* Adjust as needed */
+}
+
 
 .calendar-controls button {
     margin: 0 10px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 16px;
 }
 
@@ -74,8 +92,6 @@ select {
 .summary {
     margin-left: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 .summary h3 {
@@ -109,6 +125,7 @@ select {
     display: none;
     /* Hide weekday titles on mobile */
 }
+
 
 @media (max-width: 600px) {
     .mobile-only {

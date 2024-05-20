@@ -181,7 +181,12 @@ const Calendar = () => {
     return (
         <div className="calendar-container">
             <div className="calendar">
-                <h2>{format(currentMonth, 'MMMM yyyy')}</h2>
+                <div className="calendar-controls">
+                    <button className="arrow-button" onClick={handlePreviousMonth}><span>&#8249;</span></button>
+                    <button className="arrow-button" onClick={handleNextMonth}><span>&#8250;</span></button>
+                    <h2 class="month-display">{format(currentMonth, 'MMMM yyyy')}</h2>
+                </div>
+
                 <div className="calendar-grid">
                     {renderWeekDays()}
                     {daysInMonth.map((date) => {
@@ -189,13 +194,14 @@ const Calendar = () => {
                         const inOfficePercentage = calculateInOfficePercentage(date);
                         const isWeekendDay = isWeekend(date);
                         const cellColor = getCellColor(inOfficePercentage);
+                        const isToday = format(date, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd');
 
                         return (
                             <div
                                 key={formattedDate}
                                 className={`calendar-date ${isWeekendDay ? 'weekend' : ''} ${cellColor}`}
                             >
-                                <span>{format(date, 'd')}</span>
+                                <span style={{ color: isToday ? 'red' : 'inherit', fontWeight: isToday ? 'bold' : 'normal' }}>{format(date, 'd')}</span>
                                 {/* Show weekday in parentheses on mobile */}
                                 <span className="mobile-only"> ({format(date, 'EEE')}) </span>
                                 {!isWeekendDay && (
@@ -218,10 +224,6 @@ const Calendar = () => {
                             </div>
                         );
                     })}
-                </div>
-                <div className="calendar-controls">
-                    <button onClick={handlePreviousMonth}>Previous</button>
-                    <button onClick={handleNextMonth}>Next</button>
                 </div>
             </div>
             {summaryData()}
