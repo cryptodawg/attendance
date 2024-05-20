@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .calendar {
@@ -67,6 +66,12 @@
 .calendar-date.weekend {
     background-color: #f0f0f0;
 }
+
+.calendar-date-day-num.today {
+    border-color: red; /* Adjust circle color as needed */
+    border: 1px solid red;
+    padding: 3px;
+  }
 
 select {
     margin-top: 5px;
