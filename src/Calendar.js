@@ -201,7 +201,7 @@ const Calendar = () => {
                                 key={formattedDate}
                                 className={`calendar-date ${isWeekendDay ? 'weekend' : ''} ${cellColor}`}
                             >
-                                <span style={{ color: isToday ? 'red' : 'inherit', fontWeight: isToday ? 'bold' : 'normal' }}>{format(date, 'd')}</span>
+                                <span className={`calendar-date-day-num ${isToday ? 'today' : ''}`}>{format(date, 'd')}</span>
                                 {/* Show weekday in parentheses on mobile */}
                                 <span className="mobile-only"> ({format(date, 'EEE')}) </span>
                                 {!isWeekendDay && (

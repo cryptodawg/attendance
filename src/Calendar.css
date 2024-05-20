@@ -126,6 +126,12 @@ select {
     /* Hide weekday titles on mobile */
 }
 
+.calendar-date-day-num.today {
+    border-color: red; /* Adjust circle color as needed */
+    border: 1px solid red;
+    padding: 3px;
+  }
+
 
 @media (max-width: 600px) {
     .mobile-only {
